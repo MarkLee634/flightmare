@@ -30,8 +30,7 @@ TEST(Quadrotor, Constructor) {
 
   //
   const std::string cfg_path =
-    getenv("FLIGHTMARE_PATH") +
-    std::string("/flightlib/configs/quadrotor_env.yaml");
+    getenv("/home/marklee/flightMare_sim_ws/src/flightmare/flightlib/configs/quadrotor_env.yaml");
   Quadrotor quad2(cfg_path);
   quad2.getState(&quad_state);
 

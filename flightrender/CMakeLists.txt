@@ -11,6 +11,8 @@ if (NOT CMAKE_BUILD_TYPE)
     set(CMAKE_BUILD_TYPE "Release" CACHE STRING "" FORCE)
 endif ()
 
+set(CMAKE_BUILD_TYPE Release)
+
 # Setup Architcture-specific Flags
 if ("${CMAKE_HOST_SYSTEM_PROCESSOR}" STREQUAL "armv7l")
     message(STATUS "Using ARMv7 optimized flags!")

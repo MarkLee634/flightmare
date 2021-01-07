@@ -95,8 +95,8 @@ TEST(QuadrotorDynamics, VectorReference) {
 
 TEST(QuadrotorDynamics, LoadParams) {
   QuadrotorDynamics quad(MASS, ARM_LENGTH);
-  std::string cfg_path = getenv("FLIGHTMARE_PATH") +
-                         std::string("/flightlib/configs/quadrotor_env.yaml");
+  std::string cfg_path = getenv("/home/marklee/flightMare_sim_ws/src/flightmare/flightlib/configs/quadrotor_env.yaml");
+
 
   YAML::Node cfg = YAML::LoadFile(cfg_path);
   const Scalar mass = cfg["quadrotor_dynamics"]["mass"].as<Scalar>();

@@ -45,8 +45,7 @@ def parser():
 
 def main():
     args = parser().parse_args()
-    cfg = YAML().load(open(os.environ["FLIGHTMARE_PATH"] +
-                           "/flightlib/configs/vec_env.yaml", 'r'))
+    cfg = YAML().load(open("/home/marklee/flightMare_sim_ws/src/flightmare/flightlib/configs/vec_env.yaml", 'r'))
     if not args.train:
         cfg["env"]["num_envs"] = 1
         cfg["env"]["num_threads"] = 1

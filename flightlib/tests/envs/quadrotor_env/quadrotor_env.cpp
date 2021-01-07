@@ -18,8 +18,7 @@ TEST(QuadrotorEnv, Constructor) {
 
   // create env and load configuration from a yaml file.
   std::string config_path =
-    getenv("FLIGHTMARE_PATH") +
-    std::string("/flightlib/configs/quadrotor_env.yaml");
+    getenv("/home/marklee/flightMare_sim_ws/src/flightmare//flightlib/configs/quadrotor_env.yaml");
   logger.info("Environment configuration path \"%s\".", config_path.c_str());
   QuadrotorEnv env0(config_path);
 
