@@ -17,14 +17,32 @@
 
   <arg name="enable_logging" default="false"/>
 
-  <arg name="x_init" default="0"/>
+  <arg name="x_init" default="-3"/>
   <arg name="y_init" default="0"/>
 
-  <arg name="x_init_two" default="3"/>
+  <arg name="x_init_one" default="0.5"/>
+  <arg name="y_init_one" default="-2"/>
+
+  <arg name="x_init_two" default="1"/>
   <arg name="y_init_two" default="-1"/>
 
-<arg name="x_init_three" default="3"/>
-<arg name="y_init_three" default="1"/>
+  <arg name="x_init_three" default="1.5"/>
+  <arg name="y_init_three" default="0"/>
+
+  <arg name="x_init_four" default="2"/>
+  <arg name="y_init_four" default="1"/>
+
+  <arg name="x_init_five" default="2.5"/>
+  <arg name="y_init_five" default="2"/>
+
+  <arg name="x_init_six" default="3"/>
+  <arg name="y_init_six" default="1"/>
+
+  <arg name="x_init_seven" default="3.5"/>
+  <arg name="y_init_seven" default="0"/>
+
+  <arg name="x_init_eight" default="4"/>
+  <arg name="y_init_eight" default="-1"/>
 
   <arg name="debug" default="false"/>
   <arg name="verbose" default="false"/>
@@ -45,6 +63,19 @@
   </include>
 
   <!-- ================================================  Spawn the quadrotor ================================================  -->
+  <group ns="$(arg mav_name)0">
+    <include file="$(find rotors_gazebo)/launch/spawn_mav.launch">
+      <arg name="mav_name" value="$(arg mav_name)" />
+      <arg name="namespace" value="$(arg mav_name)0" />
+      <arg name="model" value="$(arg model)" />
+      <arg name="enable_logging" value="$(arg enable_logging)" />
+      <arg name="enable_ground_truth" value="$(arg enable_ground_truth)" />
+      <arg name="log_file" value="$(arg mav_name)1"/>
+      <arg name="x" value="$(arg x_init)" />
+      <arg name="y" value="$(arg y_init)" />
+    </include>
+  </group>
+
   <group ns="$(arg mav_name)1">
     <include file="$(find rotors_gazebo)/launch/spawn_mav.launch">
       <arg name="mav_name" value="$(arg mav_name)" />
@@ -53,8 +84,8 @@
       <arg name="enable_logging" value="$(arg enable_logging)" />
       <arg name="enable_ground_truth" value="$(arg enable_ground_truth)" />
       <arg name="log_file" value="$(arg mav_name)1"/>
-      <arg name="x" value="$(arg x_init)" />
-      <arg name="y" value="$(arg y_init)" />
+      <arg name="x" value="$(arg x_init_one)" />
+      <arg name="y" value="$(arg y_init_one)" />
     </include>
   </group>
 
@@ -84,8 +115,72 @@
     </include>
   </group>
 
-  <!-- ================================================  RPG stuff 1================================================  -->
-  <group ns="$(arg quad_name)1" >
+<group ns="$(arg mav_name)4">
+  <include file="$(find rotors_gazebo)/launch/spawn_mav.launch">
+    <arg name="mav_name" value="$(arg mav_name)" />
+    <arg name="namespace" value="$(arg mav_name)4" />
+    <arg name="model" value="$(arg model)" />
+    <arg name="enable_logging" value="$(arg enable_logging)" />
+    <arg name="enable_ground_truth" value="$(arg enable_ground_truth)" />
+    <arg name="log_file" value="$(arg mav_name)4"/>
+    <arg name="x" value="$(arg x_init_four)" />
+    <arg name="y" value="$(arg y_init_four)" />
+  </include>
+</group>
+
+<group ns="$(arg mav_name)5">
+  <include file="$(find rotors_gazebo)/launch/spawn_mav.launch">
+    <arg name="mav_name" value="$(arg mav_name)" />
+    <arg name="namespace" value="$(arg mav_name)5" />
+    <arg name="model" value="$(arg model)" />
+    <arg name="enable_logging" value="$(arg enable_logging)" />
+    <arg name="enable_ground_truth" value="$(arg enable_ground_truth)" />
+    <arg name="log_file" value="$(arg mav_name)5"/>
+    <arg name="x" value="$(arg x_init_five)" />
+    <arg name="y" value="$(arg y_init_five)" />
+  </include>
+</group>
+
+<group ns="$(arg mav_name)6">
+  <include file="$(find rotors_gazebo)/launch/spawn_mav.launch">
+    <arg name="mav_name" value="$(arg mav_name)" />
+    <arg name="namespace" value="$(arg mav_name)6" />
+    <arg name="model" value="$(arg model)" />
+    <arg name="enable_logging" value="$(arg enable_logging)" />
+    <arg name="enable_ground_truth" value="$(arg enable_ground_truth)" />
+    <arg name="log_file" value="$(arg mav_name)6"/>
+    <arg name="x" value="$(arg x_init_six)" />
+    <arg name="y" value="$(arg y_init_six)" />
+  </include>
+</group>
+
+<group ns="$(arg mav_name)7">
+  <include file="$(find rotors_gazebo)/launch/spawn_mav.launch">
+    <arg name="mav_name" value="$(arg mav_name)" />
+    <arg name="namespace" value="$(arg mav_name)7" />
+    <arg name="model" value="$(arg model)" />
+    <arg name="enable_logging" value="$(arg enable_logging)" />
+    <arg name="enable_ground_truth" value="$(arg enable_ground_truth)" />
+    <arg name="log_file" value="$(arg mav_name)7"/>
+    <arg name="x" value="$(arg x_init_seven)" />
+    <arg name="y" value="$(arg y_init_seven)" />
+  </include>
+</group>
+
+<group ns="$(arg mav_name)8">
+  <include file="$(find rotors_gazebo)/launch/spawn_mav.launch">
+    <arg name="mav_name" value="$(arg mav_name)" />
+    <arg name="namespace" value="$(arg mav_name)8" />
+    <arg name="model" value="$(arg model)" />
+    <arg name="enable_logging" value="$(arg enable_logging)" />
+    <arg name="enable_ground_truth" value="$(arg enable_ground_truth)" />
+    <arg name="log_file" value="$(arg mav_name)8"/>
+    <arg name="x" value="$(arg x_init_eight)" />
+    <arg name="y" value="$(arg y_init_eight)" />
+  </include>
+</group>
+  <!-- ================================================  RPG stuff 0================================================  -->
+  <group ns="$(arg quad_name)0" >
 
     <!-- RPG RotorS interface. -->
     <node pkg="rpg_rotors_interface" type="rpg_rotors_interface"
@@ -112,11 +207,41 @@
       <remap from="autopilot/state_estimate" to="ground_truth/odometry" />
     </node>
 
-  <node name="rqt_quad_gui" pkg="rqt_gui" type="rqt_gui"
-    args="-s rqt_quad_gui.basic_flight.BasicFlight --args
-    --quad_name $(arg quad_name)1" output="screen"/>
-
   </group>
+
+<!-- ================================================ RPG stuff  1================================================  -->
+<group ns="$(arg quad_name)1" >
+
+<!-- RPG RotorS interface. -->
+<node pkg="rpg_rotors_interface" type="rpg_rotors_interface"
+    name="rpg_rotors_interface" output="screen" >
+  <rosparam file="$(find rpg_rotors_interface)/parameters/rpg_rotors_interface.yaml" />
+  <!-- .. -->
+  <remap from="odometry" to="ground_truth/odometry" />
+  <remap from="rpg_rotors_interface/arm" to="bridge/arm" />
+</node>
+
+<!-- Autopilot -->
+<node pkg="autopilot" type="autopilot" name="autopilot" output="screen">
+  <rosparam file="$(find state_predictor)/parameters/$(arg quad_name).yaml" />
+  <rosparam file="$(find rpg_rotors_interface)/parameters/position_controller.yaml" />
+  <rosparam file="$(find rpg_rotors_interface)/parameters/autopilot.yaml" />
+
+  <param name="position_controller/use_rate_mode" value="True" />
+
+  <param name="velocity_estimate_in_world_frame" value="false" />
+  <param name="state_estimate_timeout" value="0.1" />
+  <param name="control_command_delay" value="0.05" />
+  <param name="enable_command_feedthrough" value="$(arg enable_command_feedthrough)" />
+
+  <remap from="autopilot/state_estimate" to="ground_truth/odometry" />
+</node>
+
+
+</group>
+
+
+
 
   <!-- ================================================ RPG stuff  2================================================  -->
   <group ns="$(arg quad_name)2" >
@@ -146,9 +271,7 @@
     <remap from="autopilot/state_estimate" to="ground_truth/odometry" />
   </node>
 
-  <node name="rqt_quad_gui" pkg="rqt_gui" type="rqt_gui"
-      args="-s rqt_quad_gui.basic_flight.BasicFlight --args
-      --quad_name $(arg quad_name)2" output="screen"/>
+
 </group>
 
 <!-- ================================================ RPG stuff  3================================================  -->
@@ -179,9 +302,162 @@
   <remap from="autopilot/state_estimate" to="ground_truth/odometry" />
 </node>
 
-<node name="rqt_quad_gui" pkg="rqt_gui" type="rqt_gui"
-    args="-s rqt_quad_gui.basic_flight.BasicFlight --args
-    --quad_name $(arg quad_name)3" output="screen"/>
+
+</group>
+
+
+<!-- ================================================ RPG stuff  4================================================  -->
+<group ns="$(arg quad_name)4" >
+
+<!-- RPG RotorS interface. -->
+<node pkg="rpg_rotors_interface" type="rpg_rotors_interface"
+    name="rpg_rotors_interface" output="screen" >
+  <rosparam file="$(find rpg_rotors_interface)/parameters/rpg_rotors_interface.yaml" />
+  <!-- .. -->
+  <remap from="odometry" to="ground_truth/odometry" />
+  <remap from="rpg_rotors_interface/arm" to="bridge/arm" />
+</node>
+
+<!-- Autopilot -->
+<node pkg="autopilot" type="autopilot" name="autopilot" output="screen">
+  <rosparam file="$(find state_predictor)/parameters/$(arg quad_name).yaml" />
+  <rosparam file="$(find rpg_rotors_interface)/parameters/position_controller.yaml" />
+  <rosparam file="$(find rpg_rotors_interface)/parameters/autopilot.yaml" />
+
+  <param name="position_controller/use_rate_mode" value="True" />
+
+  <param name="velocity_estimate_in_world_frame" value="false" />
+  <param name="state_estimate_timeout" value="0.1" />
+  <param name="control_command_delay" value="0.05" />
+  <param name="enable_command_feedthrough" value="$(arg enable_command_feedthrough)" />
+
+  <remap from="autopilot/state_estimate" to="ground_truth/odometry" />
+</node>
+
+
+</group>
+<!-- ================================================ RPG stuff  5================================================  -->
+<group ns="$(arg quad_name)5" >
+
+<!-- RPG RotorS interface. -->
+<node pkg="rpg_rotors_interface" type="rpg_rotors_interface"
+    name="rpg_rotors_interface" output="screen" >
+  <rosparam file="$(find rpg_rotors_interface)/parameters/rpg_rotors_interface.yaml" />
+  <!-- .. -->
+  <remap from="odometry" to="ground_truth/odometry" />
+  <remap from="rpg_rotors_interface/arm" to="bridge/arm" />
+</node>
+
+<!-- Autopilot -->
+<node pkg="autopilot" type="autopilot" name="autopilot" output="screen">
+  <rosparam file="$(find state_predictor)/parameters/$(arg quad_name).yaml" />
+  <rosparam file="$(find rpg_rotors_interface)/parameters/position_controller.yaml" />
+  <rosparam file="$(find rpg_rotors_interface)/parameters/autopilot.yaml" />
+
+  <param name="position_controller/use_rate_mode" value="True" />
+
+  <param name="velocity_estimate_in_world_frame" value="false" />
+  <param name="state_estimate_timeout" value="0.1" />
+  <param name="control_command_delay" value="0.05" />
+  <param name="enable_command_feedthrough" value="$(arg enable_command_feedthrough)" />
+
+  <remap from="autopilot/state_estimate" to="ground_truth/odometry" />
+</node>
+
+
+</group>
+
+<!-- ================================================ RPG stuff  6================================================  -->
+<group ns="$(arg quad_name)6" >
+
+<!-- RPG RotorS interface. -->
+<node pkg="rpg_rotors_interface" type="rpg_rotors_interface"
+    name="rpg_rotors_interface" output="screen" >
+  <rosparam file="$(find rpg_rotors_interface)/parameters/rpg_rotors_interface.yaml" />
+  <!-- .. -->
+  <remap from="odometry" to="ground_truth/odometry" />
+  <remap from="rpg_rotors_interface/arm" to="bridge/arm" />
+</node>
+
+<!-- Autopilot -->
+<node pkg="autopilot" type="autopilot" name="autopilot" output="screen">
+  <rosparam file="$(find state_predictor)/parameters/$(arg quad_name).yaml" />
+  <rosparam file="$(find rpg_rotors_interface)/parameters/position_controller.yaml" />
+  <rosparam file="$(find rpg_rotors_interface)/parameters/autopilot.yaml" />
+
+  <param name="position_controller/use_rate_mode" value="True" />
+
+  <param name="velocity_estimate_in_world_frame" value="false" />
+  <param name="state_estimate_timeout" value="0.1" />
+  <param name="control_command_delay" value="0.05" />
+  <param name="enable_command_feedthrough" value="$(arg enable_command_feedthrough)" />
+
+  <remap from="autopilot/state_estimate" to="ground_truth/odometry" />
+</node>
+
+
+</group>
+
+<!-- ================================================ RPG stuff  7================================================  -->
+<group ns="$(arg quad_name)7" >
+
+<!-- RPG RotorS interface. -->
+<node pkg="rpg_rotors_interface" type="rpg_rotors_interface"
+    name="rpg_rotors_interface" output="screen" >
+  <rosparam file="$(find rpg_rotors_interface)/parameters/rpg_rotors_interface.yaml" />
+  <!-- .. -->
+  <remap from="odometry" to="ground_truth/odometry" />
+  <remap from="rpg_rotors_interface/arm" to="bridge/arm" />
+</node>
+
+<!-- Autopilot -->
+<node pkg="autopilot" type="autopilot" name="autopilot" output="screen">
+  <rosparam file="$(find state_predictor)/parameters/$(arg quad_name).yaml" />
+  <rosparam file="$(find rpg_rotors_interface)/parameters/position_controller.yaml" />
+  <rosparam file="$(find rpg_rotors_interface)/parameters/autopilot.yaml" />
+
+  <param name="position_controller/use_rate_mode" value="True" />
+
+  <param name="velocity_estimate_in_world_frame" value="false" />
+  <param name="state_estimate_timeout" value="0.1" />
+  <param name="control_command_delay" value="0.05" />
+  <param name="enable_command_feedthrough" value="$(arg enable_command_feedthrough)" />
+
+  <remap from="autopilot/state_estimate" to="ground_truth/odometry" />
+</node>
+
+
+</group>
+
+<!-- ================================================ RPG stuff  8================================================  -->
+<group ns="$(arg quad_name)8" >
+
+<!-- RPG RotorS interface. -->
+<node pkg="rpg_rotors_interface" type="rpg_rotors_interface"
+    name="rpg_rotors_interface" output="screen" >
+  <rosparam file="$(find rpg_rotors_interface)/parameters/rpg_rotors_interface.yaml" />
+  <!-- .. -->
+  <remap from="odometry" to="ground_truth/odometry" />
+  <remap from="rpg_rotors_interface/arm" to="bridge/arm" />
+</node>
+
+<!-- Autopilot -->
+<node pkg="autopilot" type="autopilot" name="autopilot" output="screen">
+  <rosparam file="$(find state_predictor)/parameters/$(arg quad_name).yaml" />
+  <rosparam file="$(find rpg_rotors_interface)/parameters/position_controller.yaml" />
+  <rosparam file="$(find rpg_rotors_interface)/parameters/autopilot.yaml" />
+
+  <param name="position_controller/use_rate_mode" value="True" />
+
+  <param name="velocity_estimate_in_world_frame" value="false" />
+  <param name="state_estimate_timeout" value="0.1" />
+  <param name="control_command_delay" value="0.05" />
+  <param name="enable_command_feedthrough" value="$(arg enable_command_feedthrough)" />
+
+  <remap from="autopilot/state_estimate" to="ground_truth/odometry" />
+</node>
+
+
 </group>
 
 <!-- ================================================ Flightmare Render ================================================  -->
@@ -192,13 +468,32 @@
 
     <node pkg="flightros" type="flight_pilot_node" name="flight_pilot_node" output="screen">
       <rosparam file="$(find flightros)/params/default.yaml" />
+      <remap from="flight_pilot/state_estimate0" to="/hummingbird0/ground_truth/odometry" />
       <remap from="flight_pilot/state_estimate1" to="/hummingbird1/ground_truth/odometry" />
       <remap from="flight_pilot/state_estimate2" to="/hummingbird2/ground_truth/odometry" />
       <remap from="flight_pilot/state_estimate3" to="/hummingbird3/ground_truth/odometry" />
+      <remap from="flight_pilot/state_estimate4" to="/hummingbird4/ground_truth/odometry" />
+      <remap from="flight_pilot/state_estimate5" to="/hummingbird5/ground_truth/odometry" />
+      <remap from="flight_pilot/state_estimate6" to="/hummingbird6/ground_truth/odometry" />
+      <remap from="flight_pilot/state_estimate7" to="/hummingbird7/ground_truth/odometry" />
+      <remap from="flight_pilot/state_estimate8" to="/hummingbird8/ground_truth/odometry" />
+
     </node>
 
 
   <!-- RViz-->
   <node type="rviz" name="rviz" pkg="rviz" args="-d $(find flightros)/rviz/camera_flight.rviz" />
+
+
+<node pkg="tf" type="static_transform_publisher" name="link0_broadcaster" args="0.5 0 0 0 0 0 /hummingbird0/base_link /hummingbird0/base_link_cam 100" />
+<node pkg="tf" type="static_transform_publisher" name="link1_broadcaster" args="0.5 0 0 0 0 0 /hummingbird1/base_link /hummingbird1/base_link_cam 100" />
+<node pkg="tf" type="static_transform_publisher" name="link2_broadcaster" args="0.5 0 0 0 0 0 /hummingbird2/base_link /hummingbird2/base_link_cam 100" />
+<node pkg="tf" type="static_transform_publisher" name="link3_broadcaster" args="0.5 0 0 0 0 0 /hummingbird3/base_link /hummingbird3/base_link_cam 100" />
+<node pkg="tf" type="static_transform_publisher" name="link4_broadcaster" args="0.5 0 0 0 0 0 /hummingbird4/base_link /hummingbird4/base_link_cam 100" />
+<node pkg="tf" type="static_transform_publisher" name="link5_broadcaster" args="0.5 0 0 0 0 0 /hummingbird5/base_link /hummingbird5/base_link_cam 100" />
+<node pkg="tf" type="static_transform_publisher" name="link6_broadcaster" args="0.5 0 0 0 0 0 /hummingbird6/base_link /hummingbird6/base_link_cam 100" />
+<node pkg="tf" type="static_transform_publisher" name="link7_broadcaster" args="0.5 0 0 0 0 0 /hummingbird7/base_link /hummingbird7/base_link_cam 100" />
+<node pkg="tf" type="static_transform_publisher" name="link8_broadcaster" args="0.5 0 0 0 0 0 /hummingbird8/base_link /hummingbird8/base_link_cam 100" />
+
 
 </launch>

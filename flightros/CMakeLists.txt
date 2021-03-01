@@ -155,6 +155,20 @@ zmq
 zmqpp
 )
 
+# Motion Trajectory
+
+cs_add_executable(multimotion
+    src/pilot/multimotion.cpp
+)
+
+target_link_libraries(multimotion
+${catkin_LIBRARIES}
+${OpenCV_LIBRARIES}
+stdc++fs
+zmq
+zmqpp
+)
+
 # Finish
 cs_install()
 cs_export()
