@@ -85,8 +85,95 @@ FlightPilot::FlightPilot(const ros::NodeHandle &nh, const ros::NodeHandle &pnh)
   quad_state_3_.setZero();
   quad_ptr_3_->reset(quad_state_3_);
 
+  // ============================== drone 4 ==============================
+  // quad initialization
+  quad_ptr_4_ = std::make_shared<Quadrotor>();
 
+  // add mono camera
+//  rgb_camera_4_ = std::make_shared<RGBCamera>();
+//  rgb_camera_4_->setFOV(CAMERA_FOV);
+//  rgb_camera_4_->setWidth(CAMERA_RES_WIDTH);
+//  rgb_camera_4_->setHeight(CAMERA_RES_HEIGHT);
+//  rgb_camera_4_->setRelPose(B_r_BC, R_BC);
+//  rgb_camera_4_->setPostProcesscing(
+//    std::vector<bool>{true, false, false});  // depth, segmentation, optical flow
+//  quad_ptr_4_->addRGBCamera(rgb_camera_4_);
 
+  // initialization
+  quad_state_4_.setZero();
+  quad_ptr_4_->reset(quad_state_4_);
+
+  // ============================== drone 5 ==============================
+  // quad initialization
+  quad_ptr_5_ = std::make_shared<Quadrotor>();
+
+  // add mono camera
+//  rgb_camera_5_ = std::make_shared<RGBCamera>();
+//  rgb_camera_5_->setFOV(CAMERA_FOV);
+//  rgb_camera_5_->setWidth(CAMERA_RES_WIDTH);
+//  rgb_camera_5_->setHeight(CAMERA_RES_HEIGHT);
+//  rgb_camera_5_->setRelPose(B_r_BC, R_BC);
+//  rgb_camera_5_->setPostProcesscing(
+//    std::vector<bool>{true, false, false});  // depth, segmentation, optical flow
+//  quad_ptr_5_->addRGBCamera(rgb_camera_5_);
+
+  // initialization
+  quad_state_5_.setZero();
+  quad_ptr_5_->reset(quad_state_5_);
+
+  // ============================== drone 6 ==============================
+  // quad initialization
+  quad_ptr_6_ = std::make_shared<Quadrotor>();
+
+  // add mono camera
+//  rgb_camera_6_ = std::make_shared<RGBCamera>();
+//  rgb_camera_6_->setFOV(CAMERA_FOV);
+//  rgb_camera_6_->setWidth(CAMERA_RES_WIDTH);
+//  rgb_camera_6_->setHeight(CAMERA_RES_HEIGHT);
+//  rgb_camera_6_->setRelPose(B_r_BC, R_BC);
+//  rgb_camera_6_->setPostProcesscing(
+//    std::vector<bool>{true, false, false});  // depth, segmentation, optical flow
+//  quad_ptr_6_->addRGBCamera(rgb_camera_6_);
+
+  // initialization
+  quad_state_6_.setZero();
+  quad_ptr_6_->reset(quad_state_6_);
+
+  // ============================== drone 7 ==============================
+  // quad initialization
+  quad_ptr_7_ = std::make_shared<Quadrotor>();
+
+  // add mono camera
+//  rgb_camera_7_ = std::make_shared<RGBCamera>();
+//  rgb_camera_7_->setFOV(CAMERA_FOV);
+//  rgb_camera_7_->setWidth(CAMERA_RES_WIDTH);
+//  rgb_camera_7_->setHeight(CAMERA_RES_HEIGHT);
+//  rgb_camera_7_->setRelPose(B_r_BC, R_BC);
+//  rgb_camera_7_->setPostProcesscing(
+//    std::vector<bool>{true, false, false});  // depth, segmentation, optical flow
+//  quad_ptr_7_->addRGBCamera(rgb_camera_7_);
+
+  // initialization
+  quad_state_7_.setZero();
+  quad_ptr_7_->reset(quad_state_7_);
+
+  // ============================== drone 8 ==============================
+  // quad initialization
+  quad_ptr_8_ = std::make_shared<Quadrotor>();
+
+  // add mono camera
+//  rgb_camera_8_ = std::make_shared<RGBCamera>();
+//  rgb_camera_8_->setFOV(CAMERA_FOV);
+//  rgb_camera_8_->setWidth(CAMERA_RES_WIDTH);
+//  rgb_camera_8_->setHeight(CAMERA_RES_HEIGHT);
+//  rgb_camera_8_->setRelPose(B_r_BC, R_BC);
+//  rgb_camera_8_->setPostProcesscing(
+//    std::vector<bool>{true, false, false});  // depth, segmentation, optical flow
+//  quad_ptr_8_->addRGBCamera(rgb_camera_8_);
+
+  // initialization
+  quad_state_8_.setZero();
+  quad_ptr_8_->reset(quad_state_8_);
 
   // ============================== drone 0 ==============================
   // quad initialization
@@ -125,6 +212,38 @@ FlightPilot::FlightPilot(const ros::NodeHandle &nh, const ros::NodeHandle &pnh)
   track_bounding_box_pub_ = nh_.advertise<geometry_msgs::PoseArray>("/hummingbird0/track/bounding_box",1);
 
 
+//  rgb_pub_1_ = it.advertise("/hummingbird1/camera/rgb",1);
+//  depth_pub_1_ = it.advertise("/hummingbird1/camera/depth",1);
+//  camera_info_pub_1 = nh_.advertise<sensor_msgs::CameraInfo>("/hummingbird1/camera/camera_info",1);
+
+//  rgb_pub_2_ = it.advertise("/hummingbird2/camera/rgb",1);
+//  depth_pub_2_ = it.advertise("/hummingbird2/camera/depth",1);
+//  camera_info_pub_2 = nh_.advertise<sensor_msgs::CameraInfo>("/hummingbird2/camera/camera_info",1);
+
+//  rgb_pub_3_ = it.advertise("/hummingbird3/camera/rgb",1);
+//  depth_pub_3_ = it.advertise("/hummingbird3/camera/depth",1);
+//  camera_info_pub_3 = nh_.advertise<sensor_msgs::CameraInfo>("/hummingbird3/camera/camera_info",1);
+
+//  rgb_pub_4_ = it.advertise("/hummingbird4/camera/rgb",1);
+//  depth_pub_4_ = it.advertise("/hummingbird4/camera/depth",1);
+//  camera_info_pub_4 = nh_.advertise<sensor_msgs::CameraInfo>("/hummingbird4/camera/camera_info",1);
+
+//  rgb_pub_5_ = it.advertise("/hummingbird5/camera/rgb",1);
+//  depth_pub_5_ = it.advertise("/hummingbird5/camera/depth",1);
+//  camera_info_pub_5 = nh_.advertise<sensor_msgs::CameraInfo>("/hummingbird5/camera/camera_info",1);
+
+//  rgb_pub_6_ = it.advertise("/hummingbird6/camera/rgb",1);
+//  depth_pub_6_ = it.advertise("/hummingbird6/camera/depth",1);
+//  camera_info_pub_6 = nh_.advertise<sensor_msgs::CameraInfo>("/hummingbird6/camera/camera_info",1);
+
+//  rgb_pub_7_ = it.advertise("/hummingbird7/camera/rgb",1);
+//  depth_pub_7_ = it.advertise("/hummingbird7/camera/depth",1);
+//  camera_info_pub_7 = nh_.advertise<sensor_msgs::CameraInfo>("/hummingbird7/camera/camera_info",1);
+
+//  rgb_pub_8_ = it.advertise("/hummingbird8/camera/rgb",1);
+//  depth_pub_8_ = it.advertise("/hummingbird8/camera/depth",1);
+//  camera_info_pub_8 = nh_.advertise<sensor_msgs::CameraInfo>("/hummingbird8/camera/camera_info",1);
+
 
   init_camera_info();
 
@@ -135,7 +254,11 @@ FlightPilot::FlightPilot(const ros::NodeHandle &nh, const ros::NodeHandle &pnh)
   sub_state_est_1 = nh_.subscribe("flight_pilot/state_estimate1", 1,&FlightPilot::poseCallback_1, this);
   sub_state_est_2 = nh_.subscribe("flight_pilot/state_estimate2", 1,&FlightPilot::poseCallback_2, this);
   sub_state_est_3 = nh_.subscribe("flight_pilot/state_estimate3", 1,&FlightPilot::poseCallback_3, this);
-
+  sub_state_est_4 = nh_.subscribe("flight_pilot/state_estimate4", 1,&FlightPilot::poseCallback_4, this);
+  sub_state_est_5 = nh_.subscribe("flight_pilot/state_estimate5", 1,&FlightPilot::poseCallback_5, this);
+  sub_state_est_6 = nh_.subscribe("flight_pilot/state_estimate6", 1,&FlightPilot::poseCallback_6, this);
+  sub_state_est_7 = nh_.subscribe("flight_pilot/state_estimate7", 1,&FlightPilot::poseCallback_7, this);
+  sub_state_est_8 = nh_.subscribe("flight_pilot/state_estimate8", 1,&FlightPilot::poseCallback_8, this);
 
 #endif
 
@@ -249,6 +372,69 @@ void FlightPilot::poseCallback_4(const nav_msgs::Odometry::ConstPtr &msg) {
 
 }
 
+void FlightPilot::poseCallback_5(const nav_msgs::Odometry::ConstPtr &msg) {
+#ifdef use_multi
+  quad_state_5_.x[QS::POSX] = (Scalar)msg->pose.pose.position.y * -1;
+  quad_state_5_.x[QS::POSY] = (Scalar)msg->pose.pose.position.x;
+  quad_state_5_.x[QS::POSZ] = (Scalar)msg->pose.pose.position.z;
+  quad_state_5_.x[QS::ATTW] = (Scalar)msg->pose.pose.orientation.w;
+  quad_state_5_.x[QS::ATTX] = (Scalar)msg->pose.pose.orientation.y * -1;
+  quad_state_5_.x[QS::ATTY] = (Scalar)msg->pose.pose.orientation.x;
+  quad_state_5_.x[QS::ATTZ] = (Scalar)msg->pose.pose.orientation.z;
+
+  //rotate FlightPilot Render +90deg ZAxis to match Gazebo
+
+#endif
+
+}
+
+void FlightPilot::poseCallback_6(const nav_msgs::Odometry::ConstPtr &msg) {
+#ifdef use_multi
+  quad_state_6_.x[QS::POSX] = (Scalar)msg->pose.pose.position.y * -1;
+  quad_state_6_.x[QS::POSY] = (Scalar)msg->pose.pose.position.x;
+  quad_state_6_.x[QS::POSZ] = (Scalar)msg->pose.pose.position.z;
+  quad_state_6_.x[QS::ATTW] = (Scalar)msg->pose.pose.orientation.w;
+  quad_state_6_.x[QS::ATTX] = (Scalar)msg->pose.pose.orientation.y * -1;
+  quad_state_6_.x[QS::ATTY] = (Scalar)msg->pose.pose.orientation.x;
+  quad_state_6_.x[QS::ATTZ] = (Scalar)msg->pose.pose.orientation.z;
+
+  //rotate FlightPilot Render +90deg ZAxis to match Gazebo
+
+#endif
+
+}
+
+void FlightPilot::poseCallback_7(const nav_msgs::Odometry::ConstPtr &msg) {
+#ifdef use_multi
+  quad_state_7_.x[QS::POSX] = (Scalar)msg->pose.pose.position.y * -1;
+  quad_state_7_.x[QS::POSY] = (Scalar)msg->pose.pose.position.x;
+  quad_state_7_.x[QS::POSZ] = (Scalar)msg->pose.pose.position.z;
+  quad_state_7_.x[QS::ATTW] = (Scalar)msg->pose.pose.orientation.w;
+  quad_state_7_.x[QS::ATTX] = (Scalar)msg->pose.pose.orientation.y * -1;
+  quad_state_7_.x[QS::ATTY] = (Scalar)msg->pose.pose.orientation.x;
+  quad_state_7_.x[QS::ATTZ] = (Scalar)msg->pose.pose.orientation.z;
+
+  //rotate FlightPilot Render +90deg ZAxis to match Gazebo
+
+#endif
+
+}
+
+void FlightPilot::poseCallback_8(const nav_msgs::Odometry::ConstPtr &msg) {
+#ifdef use_multi
+  quad_state_8_.x[QS::POSX] = (Scalar)msg->pose.pose.position.y * -1;
+  quad_state_8_.x[QS::POSY] = (Scalar)msg->pose.pose.position.x;
+  quad_state_8_.x[QS::POSZ] = (Scalar)msg->pose.pose.position.z;
+  quad_state_8_.x[QS::ATTW] = (Scalar)msg->pose.pose.orientation.w;
+  quad_state_8_.x[QS::ATTX] = (Scalar)msg->pose.pose.orientation.y * -1;
+  quad_state_8_.x[QS::ATTY] = (Scalar)msg->pose.pose.orientation.x;
+  quad_state_8_.x[QS::ATTZ] = (Scalar)msg->pose.pose.orientation.z;
+
+  //rotate FlightPilot Render +90deg ZAxis to match Gazebo
+
+#endif
+
+}
 
 void FlightPilot::mainRenderCallback(const ros::TimerEvent &event) {
 
@@ -256,6 +442,11 @@ void FlightPilot::mainRenderCallback(const ros::TimerEvent &event) {
   quad_ptr_1_->setState(quad_state_1_);
   quad_ptr_2_->setState(quad_state_2_);
   quad_ptr_3_->setState(quad_state_3_);
+  quad_ptr_4_->setState(quad_state_4_);
+  quad_ptr_5_->setState(quad_state_5_);
+  quad_ptr_6_->setState(quad_state_6_);
+  quad_ptr_7_->setState(quad_state_7_);
+  quad_ptr_8_->setState(quad_state_8_);
 
 #endif
 
@@ -382,7 +573,11 @@ void FlightPilot::mainLoopCallback(const ros::TimerEvent &event) {
     tf_listener.lookupTransform("/hummingbird0/base_link_cam","/hummingbird1/base_link",ros::Time(0), tf_transform_relative_0_1);
     tf_listener.lookupTransform("/hummingbird0/base_link_cam","/hummingbird2/base_link",ros::Time(0), tf_transform_relative_0_2);
     tf_listener.lookupTransform("/hummingbird0/base_link_cam","/hummingbird3/base_link",ros::Time(0), tf_transform_relative_0_3);
-
+    tf_listener.lookupTransform("/hummingbird0/base_link_cam","/hummingbird4/base_link",ros::Time(0), tf_transform_relative_0_4);
+    tf_listener.lookupTransform("/hummingbird0/base_link_cam","/hummingbird5/base_link",ros::Time(0), tf_transform_relative_0_5);
+    tf_listener.lookupTransform("/hummingbird0/base_link_cam","/hummingbird6/base_link",ros::Time(0), tf_transform_relative_0_6);
+    tf_listener.lookupTransform("/hummingbird0/base_link_cam","/hummingbird7/base_link",ros::Time(0), tf_transform_relative_0_7);
+    tf_listener.lookupTransform("/hummingbird0/base_link_cam","/hummingbird8/base_link",ros::Time(0), tf_transform_relative_0_8);
 
   } catch (tf::TransformException ex){
     //ROS_WARN("%s",ex.what());
@@ -393,14 +588,22 @@ void FlightPilot::mainLoopCallback(const ros::TimerEvent &event) {
   transpose_0_1 = getPose_from_tf(tf_transform_relative_0_1);
   transpose_0_2 = getPose_from_tf(tf_transform_relative_0_2);
   transpose_0_3 = getPose_from_tf(tf_transform_relative_0_3);
-
+  transpose_0_4 = getPose_from_tf(tf_transform_relative_0_4);
+  transpose_0_5 = getPose_from_tf(tf_transform_relative_0_5);
+  transpose_0_6 = getPose_from_tf(tf_transform_relative_0_6);
+  transpose_0_7 = getPose_from_tf(tf_transform_relative_0_7);
+  transpose_0_8 = getPose_from_tf(tf_transform_relative_0_8);
 
   //project 3D pose into 2D img coordinate
   geometry_msgs::Point projected_0_1, projected_0_2, projected_0_3, projected_0_4, projected_0_5, projected_0_6, projected_0_7, projected_0_8 ;
   projected_0_1 = project_2d_from_3d(transpose_0_1);
   projected_0_2 = project_2d_from_3d(transpose_0_2);
   projected_0_3 = project_2d_from_3d(transpose_0_3);
-
+  projected_0_4 = project_2d_from_3d(transpose_0_4);
+  projected_0_5 = project_2d_from_3d(transpose_0_5);
+  projected_0_6 = project_2d_from_3d(transpose_0_6);
+  projected_0_7 = project_2d_from_3d(transpose_0_7);
+  projected_0_8 = project_2d_from_3d(transpose_0_8);
 
   int line_thickness = 2;
   int circle_radius = 4;//8
@@ -414,7 +617,11 @@ void FlightPilot::mainLoopCallback(const ros::TimerEvent &event) {
   cv::circle(img_bounding_box, cv::Point(projected_0_1.x,projected_0_1.y), circle_radius, cv::Scalar(0,255,0),line_thickness,8,0);
   cv::circle(img_bounding_box, cv::Point(projected_0_2.x,projected_0_2.y), circle_radius, cv::Scalar(0,255,0),line_thickness,8,0);
   cv::circle(img_bounding_box, cv::Point(projected_0_3.x,projected_0_3.y), circle_radius, cv::Scalar(0,255,0),line_thickness,8,0);
-
+  cv::circle(img_bounding_box, cv::Point(projected_0_4.x,projected_0_4.y), circle_radius, cv::Scalar(0,255,0),line_thickness,8,0);
+  cv::circle(img_bounding_box, cv::Point(projected_0_5.x,projected_0_5.y), circle_radius, cv::Scalar(0,255,0),line_thickness,8,0);
+  cv::circle(img_bounding_box, cv::Point(projected_0_6.x,projected_0_6.y), circle_radius, cv::Scalar(0,255,0),line_thickness,8,0);
+  cv::circle(img_bounding_box, cv::Point(projected_0_7.x,projected_0_7.y), circle_radius, cv::Scalar(0,255,0),line_thickness,8,0);
+  cv::circle(img_bounding_box, cv::Point(projected_0_8.x,projected_0_8.y), circle_radius, cv::Scalar(0,255,0),line_thickness,8,0);
 
   //publish bounding box
   sensor_msgs::ImagePtr box_msg = cv_bridge::CvImage(std_msgs::Header(), "bgr8", img_bounding_box).toImageMsg();
@@ -438,11 +645,23 @@ void FlightPilot::mainLoopCallback(const ros::TimerEvent &event) {
   temp_pose.position.x = projected_0_3.x;
   temp_pose.position.y = projected_0_3.y;
   bbox_pose_array.poses.push_back(temp_pose);
+  temp_pose.position.x = projected_0_4.x;
+  temp_pose.position.y = projected_0_4.y;
+  bbox_pose_array.poses.push_back(temp_pose);
+  temp_pose.position.x = projected_0_5.x;
+  temp_pose.position.y = projected_0_5.y;
+  bbox_pose_array.poses.push_back(temp_pose);
+  bbox_pose_array.header.stamp = camera_timestamp;
+  temp_pose.position.x = projected_0_6.x;
+  temp_pose.position.y = projected_0_6.y;
+  bbox_pose_array.poses.push_back(temp_pose);
+  temp_pose.position.x = projected_0_7.x;
+  temp_pose.position.y = projected_0_7.y;
+  bbox_pose_array.poses.push_back(temp_pose);
+  temp_pose.position.x = projected_0_8.x;
+  temp_pose.position.y = projected_0_8.y;
 
-  bbox_pose_array.header.stamp = ros::Time::now();
-
-
-
+  bbox_pose_array.poses.push_back(temp_pose);
   //publish 2D track vector
   track_bounding_box_pub_.publish(bbox_pose_array);
 
@@ -459,7 +678,11 @@ bool FlightPilot::setUnity(const bool render) {
     unity_bridge_ptr_->addQuadrotor(quad_ptr_1_);
     unity_bridge_ptr_->addQuadrotor(quad_ptr_2_);
     unity_bridge_ptr_->addQuadrotor(quad_ptr_3_);
-
+    unity_bridge_ptr_->addQuadrotor(quad_ptr_4_);
+    unity_bridge_ptr_->addQuadrotor(quad_ptr_5_);
+    unity_bridge_ptr_->addQuadrotor(quad_ptr_6_);
+    unity_bridge_ptr_->addQuadrotor(quad_ptr_7_);
+    unity_bridge_ptr_->addQuadrotor(quad_ptr_8_);
 #endif
 
     unity_bridge_ptr_->addQuadrotor(quad_ptr_);

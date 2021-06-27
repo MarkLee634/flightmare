@@ -439,8 +439,6 @@ void FlightPilot::mainLoopCallback(const ros::TimerEvent &event) {
   temp_pose.position.y = projected_0_3.y;
   bbox_pose_array.poses.push_back(temp_pose);
 
-  bbox_pose_array.header.stamp = ros::Time::now();
-
 
 
   //publish 2D track vector

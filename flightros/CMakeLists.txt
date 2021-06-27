@@ -2,7 +2,10 @@ project(flightros)
 
 cmake_minimum_required(VERSION 3.0.0)
 
-find_package(catkin_simple REQUIRED)
+find_package(catkin_simple REQUIRED
+    geometry_msgs
+
+)
 
 find_package(OpenCV REQUIRED)
 
@@ -14,6 +17,8 @@ catkin_simple()
 if (NOT CMAKE_BUILD_TYPE)
     set(CMAKE_BUILD_TYPE "Release" CACHE STRING "" FORCE)
 endif ()
+
+set(CMAKE_BUILD_TYPE Release)
 
 # Setup Architcture-specific Flags
 if ("${CMAKE_HOST_SYSTEM_PROCESSOR}" STREQUAL "armv7l")
@@ -57,6 +62,8 @@ target_link_libraries(flight_pilot_node
   ${OpenCV_LIBRARIES}
   stdc++fs
 )
+
+
 
 # motion_planning
 
@@ -124,17 +131,7 @@ LIBRARIES
 CATKIN_DEPENDS
 )
 
-cs_add_executable(racing
-    src/racing/racing.cpp
-)
 
-target_link_libraries(racing
-${catkin_LIBRARIES}
-${OpenCV_LIBRARIES}
-stdc++fs
-zmq
-zmqpp
-)
 
 # camera
 
@@ -143,6 +140,20 @@ cs_add_executable(camera
 )
 
 target_link_libraries(camera
+${catkin_LIBRARIES}
+${OpenCV_LIBRARIES}
+stdc++fs
+zmq
+zmqpp
+)
+
+# Motion Trajectory
+
+cs_add_executable(multimotion
+    src/pilot/multimotion.cpp
+)
+
+target_link_libraries(multimotion
 ${catkin_LIBRARIES}
 ${OpenCV_LIBRARIES}
 stdc++fs

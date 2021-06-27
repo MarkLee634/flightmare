@@ -84,21 +84,6 @@
       <remap from="autopilot/state_estimate" to="ground_truth/odometry" />
     </node>
 
-    <group if="$(arg use_mpc)">
-      <node pkg="rpg_mpc" type="autopilot_mpc_instance" name="autopilot" output="screen">
-        <rosparam file="$(find state_predictor)/parameters/hummingbird.yaml" />
-        <rosparam file="$(find rpg_mpc)/parameters/default.yaml" />
-        <rosparam file="$(find rpg_rotors_interface)/parameters/autopilot.yaml" />
-
-        <param name="velocity_estimate_in_world_frame" value="false" />
-        <param name="state_estimate_timeout" value="0.1" />
-        <param name="control_command_delay" value="0.05" />
-        <param name="enable_command_feedthrough" value="$(arg enable_command_feedthrough)" />
-
-        <remap from="autopilot/state_estimate" to="ground_truth/odometry" />
-      </node>
-    </group>
-
     <node pkg="flightros" type="flight_pilot_node" name="flight_pilot_node" output="screen">
       <rosparam file="$(find flightros)/params/default.yaml" />
       <remap from="flight_pilot/state_estimate" to="ground_truth/odometry" />
@@ -118,5 +103,8 @@
         --quad_name $(arg quad_name)" output="screen"/>
 
   </group>
+
+  <!-- RViz -->
+  <node type="rviz" name="rviz" pkg="rviz" args="-d $(find flightros)/rviz/camera_flight.rviz" />
 
 </launch>
